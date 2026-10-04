@@ -1,11 +1,22 @@
 package ru.kafpin.prakti1;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "students")
+
 public class Student {
-    private long id;
+
+    public Student() {}
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String lastname;
     private String patronomic;
     private String email;
+    @Column(name = "study_year")
     private Integer year;
     //private String group;
 
@@ -14,13 +25,13 @@ public class Student {
     public String getName() {
         return name;
     }
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+//    public void setId(long id) {
+//        this.id = id;
+//    }
     public void setName(String name) {
         this.name = name;
     }
