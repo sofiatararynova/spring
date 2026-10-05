@@ -27,6 +27,8 @@
             <th></th>
         </tr>
         </thead>
+        <input type="text" placeholder="Группа"
+               th:field="*{department.title}"/>
         <tbody>
         <tr th:each="s : ${students}">
             <td th:text="${s.id}"></td>
@@ -36,6 +38,7 @@
             <td th:text="${s.email}"></td>
             <td th:text="${s.year}"></td>
             <td th:text="${s.group}"></td>
+            <td th:text="${student.department.title}"/>
             <td>
                 <a th:href="@{/details/{id}(id=${s.id})}"
                    class="btn btn-sm btn-secondary">Детали</a>

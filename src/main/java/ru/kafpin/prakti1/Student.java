@@ -20,6 +20,12 @@ public class Student {
     private Integer year;
     //private String group;
 
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "department_id", nullable = false)
+    private Department department;
+
+//    cascade orphanRemoval = true;
+
 //Getters and setters
 
     public String getName() {
@@ -80,4 +86,13 @@ public class Student {
     public String getLogin() {
         return "student-" + getGroup() + "-" + id;
     }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
 }
